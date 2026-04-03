@@ -1,9 +1,12 @@
 
+# Overview
+
 This program, lottery.py, allows you to see how a lottery scheduler
 works. As always, there are two steps to running the program. First, run
 without the -c flag: this shows you what problem to solve without
 revealing the answers. 
 
+```sh
 prompt> ./lottery.py -j 2 -s 0
 ...
 Here is the job list, with the run time of each job: 
@@ -23,7 +26,7 @@ Random 281838
 Random 755804
 Random 618369
 Random 250506
-]
+```
 
 When you run the simulator in this manner, it first assigns you some random
 jobs (here of lengths 8, and 4), each with some number of tickets (here 75 and
@@ -36,6 +39,7 @@ system).
 
 Running with -c shows exactly what you are supposed to calculate:
 
+```sh
 prompt> ./lottery.py -j 2 -s 0 -c
 ...
 ** Solutions **
@@ -65,7 +69,7 @@ Random 618369 -> Winning ticket 69 (of 75) -> Run 0
 Random 250506 -> Winning ticket 6 (of 75) -> Run 0
   Jobs:  (* job:0 timeleft:1 tix:75 ) (  job:1 timeleft:0 tix:--- )
 --> JOB 0 DONE at time 12
-]
+```
 
 As you can see from this trace, what you are supposed to do is use the random
 number to figure out which ticket is the winner. Then, given the winning
@@ -85,9 +89,10 @@ does not win; the next entry is for job 1, and thus we have found our winner,
 so we run job 1 for the quantum length (1 in this example). All of this is
 shown in the print out as follows:
 
+```sh
 Random 511275 -> Winning ticket 75 (of 100) -> Run 1
   Jobs:  (  job:0 timeleft:8 tix:75 ) (* job:1 timeleft:4 tix:25 )
-]
+```
 
 As you can see, the first line summarizes what happens, and the second simply
 shows the entire job queue, with an * denoting which job was chosen.
@@ -97,6 +102,7 @@ self-explanatory. Most notably, the -l/--jlist flag can be used to specify an
 exact set of jobs and their ticket values, instead of always using
 randomly-generated job lists.
 
+```sh
 prompt> ./lottery.py -h
 Usage: lottery.py [options]
 
@@ -120,5 +126,5 @@ Options:
       length of time slice
   -c, --compute
       compute answers for me
-
+```
 
